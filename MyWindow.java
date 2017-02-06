@@ -20,7 +20,7 @@ public class MyWindow extends JFrame{
         jpMap=new Map();
         jpMap.startNewGame(3);
         add(jpMap, BorderLayout.CENTER);
-        JPanel jpBottom = new JPanel(new CardLayout());
+        final JPanel jpBottom = new JPanel(new CardLayout());
         jpBottom.setPreferredSize(new Dimension(1, 60));
         add(jpBottom, BorderLayout.SOUTH);
 
@@ -42,7 +42,7 @@ public class MyWindow extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
-        )};
+        });
         jpStartExit.add(jbExit);
         jpBottom.add(jpStartExit, "jpStartExit");
 
@@ -51,7 +51,7 @@ public class MyWindow extends JFrame{
         jbHumanVsHuman.addActionListener (new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e) {
-            ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpSelectMap");
+                ((CardLayout) jpBottom.getLayout()).show(jpBottom, "jpSelectMap");
         }
 
         });
